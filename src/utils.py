@@ -1,12 +1,11 @@
 """helpers for the main program"""
 
-def remove_non_duplicates(dic: dict):
-    """remove non-duplicate values from a dictionary"""
+def remove_non_duplicates(dic: dict) -> dict:
+    """Remove non-duplicate values and return a new dict sorted by key."""
     if not isinstance(dic, dict):
         raise TypeError("Input must be a dictionary")
-    for key, value in list(dic.items()):
-        if len(value) < 2:
-            del dic[key]
+    filtered = {k: v for k, v in dic.items() if len(v) >= 2}
+    return dict(sorted(filtered.items()))
 
 def get_unique_pairs(li: list) -> dict:
     """return possible pairs"""
@@ -21,8 +20,8 @@ def get_unique_pairs(li: list) -> dict:
                 sum_pairs[pair_sum] = []
             sum_pairs[pair_sum].append((li[i], li[j]))
 
-    # Remove pairs with only one occurrence
-    remove_non_duplicates(sum_pairs)
+    # Remove pairs with only one occurrence and sort ascending
+    sum_pairs: dict = remove_non_duplicates(sum_pairs)
     return sum_pairs
 
 def print_equal_sums(sum_pairs: dict):

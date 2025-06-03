@@ -15,6 +15,7 @@ class CArray:
 
     def to_list(self) -> list:
         """Convert the C++ array-like string to a Python list."""
+        return_list: list = []
         if not isinstance(self.c_array_str, str):
             return []
         if not self.c_array_str.startswith('{') or not self.c_array_str.endswith('}'):
@@ -23,4 +24,5 @@ class CArray:
         elements: list = [nmb.strip() for nmb in stripped_str.split(',') if nmb.strip()]
         if not self._is_valid_elements(elements):
             return []
-        return [int(nmb) for nmb in elements]
+        return_list = [int(nmb) for nmb in elements]
+        return list(set(return_list))
