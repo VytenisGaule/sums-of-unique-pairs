@@ -1,4 +1,4 @@
-"""helpers for the main program"""
+"""helpers"""
 
 def remove_non_duplicates(dic: dict) -> dict:
     """Remove non-duplicate values and return a new dict sorted by key."""

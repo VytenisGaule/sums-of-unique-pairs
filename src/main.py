@@ -1,4 +1,4 @@
-"""main program for finding pairs with equal sums"""
+"""main pfile for finding unique pairs with equal sums."""
 
 from utils import print_equal_sums, get_unique_pairs
 from models import CArray
