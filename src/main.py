@@ -14,4 +14,3 @@ if __name__ == "__main__":
     else:
         dict_to_print: dict = get_unique_pairs(li)
         print_equal_sums(dict_to_print)
-
